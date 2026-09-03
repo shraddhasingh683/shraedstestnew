@@ -516,7 +516,7 @@ async function setupForm(formDef, { pathname, block, editMode = false } = {}) {
   const actionType = submitProps?.actionName || formDef?.properties?.actionType;
   const spreadsheetUrl = submitProps?.spreadsheet?.spreadsheetUrl
     || formDef?.properties?.spreadsheetUrl;
-  if (actionType === 'spreadsheet' && spreadsheetUrl) {
+  if ((actionType === 'spreadsheet' && spreadsheetUrl) || (actionType === 'aep') ) {
     // Check if we're in an iframe and use parent window path if available
     const iframePath = window.frameElement ? window.parent.location.pathname
       : window.location.pathname;
